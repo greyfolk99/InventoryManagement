@@ -1,6 +1,8 @@
 package com.example.mini.domain.item;
 
+import com.example.mini.dto.request.UpdateItemRequest;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,5 +21,20 @@ public class Item {
     private String name;
     private String brand;
     private String category;
+
+    @Builder
+    public Item(Long id, String name, String brand, String category) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.category = category;
+    }
+
+    public void update(UpdateItemRequest request){
+        id = request.getId();
+        name = request.getName();
+        brand = request.getBrand();
+        category = request.getCategory();
+    }
 }
 

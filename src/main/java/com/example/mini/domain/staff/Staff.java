@@ -1,5 +1,6 @@
 package com.example.mini.domain.staff;
 
+import com.example.mini.dto.request.UpdateStaffRequest;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,5 +36,14 @@ public class Staff {
         this.name = name;
         this.grade = grade;
         this.phone = phone;
+    }
+
+    public void update(UpdateStaffRequest request){
+        id = request.getId();
+        accId = request.getAccId();
+        pwd = request.getPwd();
+        name = request.getName();
+        grade = request.getGrade();
+        phone = request.getPhone();
     }
 }
